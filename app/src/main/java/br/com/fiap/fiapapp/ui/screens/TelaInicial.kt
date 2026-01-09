@@ -29,7 +29,6 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.com.fiap.fiapapp.data.repository.UsuarioDataStorePreferences
-import br.com.fiap.fiapapp.domain.Usuario
 import br.com.fiap.fiapapp.ui.theme.FiapAppTheme
 import br.com.fiap.fiapapp.ui.viewmodel.TelaInicialViewModel
 
@@ -104,10 +103,10 @@ fun TelaInicial(context: Context, viewModel: TelaInicialViewModel) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Checkbox(
-                    checked = state.lembrar,
-                    onCheckedChange = viewModel::atualizarLembrar
+                    checked = state.temaEscuro,
+                    onCheckedChange = viewModel::atualizarTemaEscuro
                 )
-                Text(text = "Lembrar")
+                Text(text = "Tema escuro?")
             }
             Spacer(modifier = Modifier.height(32.dp))
             Button(

@@ -23,7 +23,7 @@ class UsuarioDataStorePreferences(private val context: Context) {
             prefs[NOME] = usuario.nome
             prefs[EMAIL] = usuario.email
             prefs[IDADE] = usuario.idade
-            prefs[LEMBRAR] = usuario.lembrar
+            prefs[LEMBRAR] = usuario.temaEscuro
         }
     }
 
@@ -32,7 +32,7 @@ class UsuarioDataStorePreferences(private val context: Context) {
             nome = prefs[NOME] ?: "",
             email = prefs[EMAIL] ?: "",
             idade = prefs[IDADE] ?: 0,
-            lembrar = prefs[LEMBRAR] ?: false
+            temaEscuro = prefs[LEMBRAR] ?: false
         )
     }
 }

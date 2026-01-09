@@ -41,8 +41,8 @@ class TelaInicialViewModel(
         _uiState.update { it.copy(idade = idade.toIntOrNull() ?: 0) }
     }
 
-    fun atualizarLembrar(lembrar: Boolean) {
-        _uiState.update { it.copy(lembrar = lembrar) }
+    fun atualizarTemaEscuro(temaEscuro: Boolean) {
+        _uiState.update { it.copy(temaEscuro = temaEscuro) }
     }
 
     fun gravarDados() {
