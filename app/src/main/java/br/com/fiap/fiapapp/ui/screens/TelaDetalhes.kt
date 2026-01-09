@@ -20,10 +20,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import br.com.fiap.fiapapp.domain.Usuario
 import br.com.fiap.fiapapp.ui.theme.FiapAppTheme
 
 @Composable
-fun TelaDetalhes() {
+fun TelaDetalhes(usuario: Usuario) {
     Surface(
         modifier = Modifier
             .fillMaxSize()
@@ -90,6 +91,6 @@ fun TelaDetalhes() {
 @Composable
 private fun TelaDetalhesPreview() {
     FiapAppTheme {
-        TelaDetalhes()
+        //TelaDetalhes()
     }
 }

@@ -22,11 +22,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import br.com.fiap.fiapapp.data.repository.UsuarioDataStorePreferences
+import br.com.fiap.fiapapp.domain.Usuario
 import br.com.fiap.fiapapp.ui.theme.FiapAppTheme
 import br.com.fiap.fiapapp.ui.viewmodel.TelaInicialViewModel
 
@@ -55,7 +58,10 @@ fun TelaInicial(context: Context, viewModel: TelaInicialViewModel) {
             Spacer(modifier = Modifier.height(32.dp))
             TextField(
                 value = state.nome,
-                onValueChange = viewModel::atualizarNome,
+                //onValueChange = viewModel::atualizarNome,
+                onValueChange = {
+                    viewModel.atualizarNome(it)
+                },
                 modifier = Modifier.fillMaxWidth(),
                 label = {
                     Text(text = "Qual o seu nome?")
@@ -105,7 +111,9 @@ fun TelaInicial(context: Context, viewModel: TelaInicialViewModel) {
             }
             Spacer(modifier = Modifier.height(32.dp))
             Button(
-                onClick = {},
+                onClick = {
+                    viewModel.gravarDados()
+                },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(text = "Gravar dados")
@@ -119,6 +127,13 @@ fun TelaInicial(context: Context, viewModel: TelaInicialViewModel) {
 @Composable
 private fun TelaInicialPreview() {
     FiapAppTheme {
-        //TelaInicial(LocalContext.current, TelaInicialViewModel())
+        TelaInicial(
+            LocalContext.current,
+            TelaInicialViewModel(
+                UsuarioDataStorePreferences(
+                    LocalContext.current
+                )
+            )
+        )
     }
 }
